@@ -85,7 +85,7 @@ export function ApiKeyPanel() {
             API key
           </h2>
           <p className="mt-1 max-w-[60ch] text-ink-2">
-            Optional. Without a key, every Vitals Lab user shares Google’s small anonymous quota, so
+            Optional. Without a key, every SpeedSphere user shares Google’s small anonymous quota, so
             tests often fail with a rate limit. Your own free key gives you a private quota.
           </p>
 

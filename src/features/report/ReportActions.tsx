@@ -49,7 +49,7 @@ export function ReportActions({
     const date = (report.fetchTime ?? new Date().toISOString()).slice(0, 10)
     // The PSI response never contains the key, but redact anyway before it leaves the app.
     const json = redactKey(JSON.stringify(report.raw, null, 2), getApiKey())
-    downloadFile(`vitals-lab_${host}_${report.strategy}_${date}.json`, json)
+    downloadFile(`speedsphere_${host}_${report.strategy}_${date}.json`, json)
     setDone('download')
   }
 

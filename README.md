@@ -1,4 +1,4 @@
-# Vitals Lab
+# SpeedSphere (SPEEDSPHERE)
 
 A frontend-only dashboard for the [Google PageSpeed Insights API v5](https://developers.google.com/speed/docs/insights/v5/get-started). Enter a public URL, pick mobile, desktop or both, and get the Lighthouse lab test and Chrome UX Report field data in plain English, rendered in our own UI.
 

@@ -60,7 +60,7 @@ export function Layout() {
       </a>
       <header className="sticky top-0 z-40 border-b border-rule bg-[color-mix(in_oklab,var(--panel)_82%,transparent)] backdrop-blur-md backdrop-saturate-150">
         <div className="mx-auto flex h-16 max-w-[1240px] items-center gap-3 px-4 sm:px-6">
-          <NavLink to="/" className="rounded-control no-underline" aria-label="Vitals Lab home">
+          <NavLink to="/" className="rounded-control no-underline" aria-label="SPEEDSPHERE home">
             <Wordmark />
           </NavLink>
           <nav aria-label="Main" className="ml-auto flex items-center gap-1">

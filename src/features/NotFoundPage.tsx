@@ -8,7 +8,7 @@ export default function NotFoundPage() {
       <div className="max-w-xl">
         <h1 className="font-display text-5xl sm:text-6xl">Nothing on this page</h1>
         <p className="mt-4 text-lg text-ink-2">
-          The address doesn’t match anything in Vitals Lab. It may be an old link, or a typo.
+          The address doesn’t match anything in SpeedSphere. It may be an old link, or a typo.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <Button asChild size="lg">
