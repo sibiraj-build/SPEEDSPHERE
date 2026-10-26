@@ -18,10 +18,12 @@ import type { Strategy } from '@/lib/psi-types'
 import { useAnalysis } from '../analyze/analysis-context'
 import { AnalyzeForm } from '../analyze/AnalyzeForm'
 import { reportPath, strategyParamOf, type RunRequest, type StrategyParam } from '../analyze/run'
+import { useTranslation } from '@/lib/i18n'
 
 export function HomePage() {
   const { state, start, cancel } = useAnalysis()
   const { settings } = useSettings()
+  const { t } = useTranslation()
   const navigate = useNavigate()
   const location = useLocation()
   const prefill = (location.state as { url?: string } | null)?.url
@@ -46,14 +48,13 @@ export function HomePage() {
         <div>
           <p className="inline-flex items-center gap-2 rounded-full border border-rule bg-plate px-3 py-1 text-sm text-ink-2 shadow-[var(--shadow-plate)]">
             <Sparkles className="size-3.5 text-signal" aria-hidden />
-            Powered by Google PageSpeed Insights
+            {t.heroBadge}
           </p>
           <h1 className="font-display mt-5 max-w-[14ch] text-[2.75rem] sm:text-[3.75rem] lg:text-[4.25rem]">
-            Put a page on the bench.
+            {t.heroTitle}
           </h1>
           <p className="mt-4 max-w-[52ch] text-lg text-ink-2">
-            Google loads it on a simulated phone or desktop and measures everything. We turn the
-            readings into plain English and point at the fixes that matter most.
+            {t.heroSubtitle}
           </p>
 
           {running && (
@@ -85,13 +86,11 @@ export function HomePage() {
       </div>
 
       <div className="mt-14 grid gap-4 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1.15fr)]">
-        <Feature icon={FlaskConical} title="Lab test">
-          One controlled visit, run by Google right now. Takes 10 to 60 seconds. Good for finding
-          causes.
+        <Feature icon={FlaskConical} title={t.labTest}>
+          {t.labTestDesc}
         </Feature>
-        <Feature icon={Users} title="Real-user data">
-          How actual Chrome visitors experienced the page over the last 28 days, when there’s enough
-          traffic.
+        <Feature icon={Users} title={t.realUserData}>
+          {t.realUserDesc}
         </Feature>
         <button
           type="button"
@@ -103,14 +102,14 @@ export function HomePage() {
           </span>
           <span className="min-w-0">
             <span className="font-label flex items-center gap-1.5 text-[1.0625rem] text-ink">
-              View sample report
+              {t.viewSample}
               <ChevronRight
                 className="size-4 text-ink-2 transition-transform group-hover:translate-x-0.5"
                 aria-hidden
               />
             </span>
             <span className="mt-1 block text-[0.9375rem] text-ink-2">
-              A full saved result. No quota used, works offline.
+              {t.sampleSubtitle}
             </span>
           </span>
         </button>

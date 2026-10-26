@@ -16,6 +16,7 @@ import { Wordmark } from '@/components/shared/Wordmark'
 import type { Theme } from '@/lib/storage'
 import { cn } from '@/lib/utils'
 import { useSettings } from './settings-context'
+import { useTranslation } from '@/lib/i18n'
 
 const NEXT_THEME: Record<Theme, Theme> = { system: 'light', light: 'dark', dark: 'system' }
 const THEME_ICON = { system: SunMoon, light: Sun, dark: Moon }
@@ -31,6 +32,7 @@ function navClass({ isActive }: { isActive: boolean }) {
 
 export function Layout() {
   const { settings, updateSettings, persistent } = useSettings()
+  const { t } = useTranslation()
   const ThemeIcon = THEME_ICON[settings.theme]
   const location = useLocation()
   const mainRef = useRef<HTMLElement>(null)
@@ -58,7 +60,7 @@ export function Layout() {
       >
         Skip to content
       </a>
-      <header className="sticky top-0 z-40 border-b border-rule bg-[color-mix(in_oklab,var(--panel)_82%,transparent)] backdrop-blur-md backdrop-saturate-150">
+      <header className="sticky top-0 z-40 border-b border-rule bg-[color-mix(in_oklab,var(--panel)_90%,transparent)] backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-[1240px] items-center gap-3 px-4 sm:px-6">
           <NavLink to="/" className="rounded-control no-underline" aria-label="SPEEDSPHERE home">
             <Wordmark />
@@ -66,11 +68,11 @@ export function Layout() {
           <nav aria-label="Main" className="ml-auto flex items-center gap-1">
             <NavLink to="/" end className={navClass}>
               <Activity className="hidden size-4 sm:block" aria-hidden />
-              <span>Analyze</span>
+              <span>{t.analyze}</span>
             </NavLink>
             <NavLink to="/settings" className={navClass}>
               <SlidersHorizontal className="hidden size-4 sm:block" aria-hidden />
-              <span>Settings</span>
+              <span>{t.settings}</span>
             </NavLink>
             <button
               type="button"

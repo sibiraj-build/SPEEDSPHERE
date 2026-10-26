@@ -72,18 +72,28 @@
 
   body {
     min-height: 100dvh;
-    /* Faint graph-paper grid, fading out down the page: the bench the page is measured on. */
-    background:
-      linear-gradient(to bottom, transparent 0, var(--panel) 720px) no-repeat,
-      linear-gradient(var(--grid) 1px, transparent 1px) 0 0 / 24px 24px,
-      linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0 / 24px 24px,
-      var(--panel);
+    background-color: var(--panel);
     font-family: var(--font-sans);
     font-size: 1rem;
     line-height: 1.55;
     font-variation-settings: 'wdth' 100;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background:
+      linear-gradient(to bottom, transparent 0, var(--panel) 720px) no-repeat,
+      linear-gradient(var(--grid) 1px, transparent 1px) 0 0 / 24px 24px,
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0 / 24px 24px,
+      var(--panel);
+    transform: translateZ(0);
   }
 
   :focus-visible {
@@ -341,11 +351,14 @@
   }
 }
 .vl-hero-needle {
+  will-change: transform;
   animation:
     vl-hero-sweep 1.7s cubic-bezier(0.25, 0.8, 0.25, 1) both,
     vl-hero-idle 3.2s ease-in-out 1.7s infinite;
 }
 .vl-hero-trace {
+  will-change: transform;
+  transform: translateZ(0);
   animation: vl-hero-scroll 7s linear infinite;
 }
 .vl-hero-chip {
